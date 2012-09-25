@@ -1,0 +1,55 @@
+
+@rhythmic-unit: 20px;
+@rhythmic-fontsize: 14px;
+
+#rhythmless {
+    .rhythm-base(
+      @font-size: @rhythmic-fontsize,
+      @margin-top:0,
+      @margin-bottom:0,
+      @leading: 0,
+      @unit: @rhythmic-unit) {
+        font-size: @font-size;
+        line-height: ceil((@font-size + @leading) / @unit) * @unit;
+        margin-bottom: ceil((@margin-bottom) / @unit) * @unit;
+        margin-top: ceil((@margin-top) / @unit) * @unit;
+    }
+
+    .container(
+      @padding,
+      @border) {
+         margin-top: 0 - @padding - @border;
+         margin-bottom: 0 - @padding - @border;
+         padding-top: @padding;
+         padding-bottom: @padding;
+         border-width: @border;
+      :first-child {
+        margin-top: 0;
+      }
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .rhythm(
+      @font-size: @rhythmic-fontsize,
+      @margin: 0,
+      @leading: 0,
+      @unit: @rhythmic-unit) {
+        .rhythm-base(@font-size, @margin, @margin, @leading, @unit)
+    }
+
+    .vertical-rule(@color: #ddd, @unit:@rhythmic-unit) {
+        background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(white),
+            color-stop(100% - 100% / @unit, white),
+            color-stop(100% - 100% / @unit, @color),
+            to(@color)
+        );
+        background-size: auto @unit;
+    }
+}
+

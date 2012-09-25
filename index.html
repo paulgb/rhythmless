@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>rhythmless</title>
+        <link rel="stylesheet/less" type="text/css" href="style.less">
+        <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+        <script src="lib/less.js"></script>
+        <script type="text/javascript">
+            less.env = "development";
+            less.watch();
+        </script>
+    </head>
+    <body>
+        <div class="content">
+        <header>
+            <h1>rhythmless</h1>
+            <h2>Vertical Rhythm for <a href="http://lesscss.org/">LESS</a></h2>
+        </header>
+
+        <p>rhythmless provides an easy way to maintain a <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">vertical rhythm</a> in LESS/CSS</a>. It's a lightweight mixin bundle that doesn't make any assumptions about your code.</p>
+
+        <h2>Features</h2>
+
+        <ul>
+            <li><strong>Semantic</strong> - use the mixins with any class or element</li>
+            <li><strong>Compatible</strong> - tightly namespaced and compatible with CSS reset code</li>
+            <li><strong>Easy</strong> - put away your calculator, no need for pesky arithmatic</li>
+            <li><strong>Pure</strong> - generates pure CSS, no JavaScript</li>
+            <li><strong>Flexible</strong> - specify your own rhythmic unit and apply it to the selectors you want</li>
+        </ul>
+
+        <h2>Code</h2>
+        <div class="code">
+        <pre><code>// import the mixins
+@import "rhythm";
+
+// set the rhythmic unit
+@rhythmic-unit: 20px;
+h1 {
+    // set the text size to 40px
+    .rhythm-text(40px);
+    // add a space above and below
+    .rhythm-seperator(both);
+}</code></pre>
+        </div>
+        <p>Inspired by <a href="http://www.gridlover.net/">gridlover</a> and <a href="http://www.alistapart.com/articles/settingtypeontheweb/">Wilson Miner's article</a></p>
+    </div>
+    </body>
+</html>
