@@ -13,6 +13,24 @@
         line-height: ceil((@font-size + @leading) / @unit) * @unit;
         margin-bottom: ceil((@margin-bottom) / @unit) * @unit;
         margin-top: ceil((@margin-top) / @unit) * @unit;
+
+        sup {
+            //vertical-align: top;
+            font-size: 65%;
+            position: relative;
+            top: 0 - (@font-size / 4);
+        }
+
+        sub {
+            //vertical-align: bottom;
+            font-size: 65%;
+            position: relative;
+            bottom: 0 - (@font-size / 4);
+        }
+
+        * {
+            vertical-align: bottom;
+        }
     }
 
     .container(
@@ -36,10 +54,11 @@
       @margin: 0,
       @leading: 0,
       @unit: @rhythmic-unit) {
-        .rhythm-base(@font-size, @margin, @margin, @leading, @unit)
+        #rhythmless > .rhythm-base(@font-size, @margin, @margin, @leading, @unit)
     }
 
     .vertical-rule(@color: #ddd, @unit:@rhythmic-unit) {
+        @stop: 100% - 100% / @unit;
         background: -webkit-gradient(
             linear,
             left top,
@@ -49,7 +68,33 @@
             color-stop(100% - 100% / @unit, @color),
             to(@color)
         );
+        background: -moz-linear-gradient(top, white, white @stop, @color @stop,  @color);
         background-size: auto @unit;
+    }
+    
+    .rhythm-container(@font-size) {
+        @margin: round(@font-size / 2);
+
+        h1 {
+            #rhythmless > .rhythm(round(@font-size * 2.8), @margin);
+        }
+
+        h2 {
+            #rhythmless > .rhythm(round(@font-size * 1.42), @margin);
+        }
+
+        h3 {
+            #rhythmless > .rhythm(round(@font-size * 1.2), @margin);
+        }
+
+        p, pre, ul {
+            #rhythmless > .rhythm(@font-size, @margin);
+        }
+
+        li {
+            #rhythmless > .rhythm(@font-size);
+        }
+
     }
 }
 

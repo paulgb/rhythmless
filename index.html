@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>rhythmless</title>
+        <title>Rhythmless</title>
         <link rel="stylesheet/less" type="text/css" href="style.less">
         <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
         <script src="lib/less.js"></script>
@@ -13,11 +13,11 @@
         <div class="content">
 
         <header>
-            <h1>rhythmless</h1>
+            <h1>Rhythmless</h1>
             <h2>Vertical Rhythm for <a href="http://lesscss.org/">LESS</a></h2>
         </header>
 
-        <p>rhythmless provides an easy way to maintain a <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">vertical rhythm</a> in LESS/CSS</a>. It's a lightweight mixin bundle that doesn't make any assumptions about your code.</p>
+        <p>Rhythmless provides an easy way to maintain <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">vertical rhythm</a> in CSS</a>. It's a lightweight LESS mixin bundle that doesn't make any assumptions about your code.</p>
 
         <h2>Features</h2>
 
@@ -29,16 +29,27 @@
             <li><strong>Flexible</strong> - specify your own rhythmic unit and apply it to the selectors you want</li>
         </ul>
 
-        <h2>Code</h2>
+        <h2>Getting Started</h2>
+        <h3>Requirements</h3>
+        <p>Rhythmless requires the <a href="http://lesscss.org/">LESS CSS compiler</a>. If you're not already using it,
+        refer to the <a href="http://lesscss.org/#-client-side-usage">LESS documentation</a> to integrate LESS into your project.</p>
+        <h3>Installation</h3>
+        <p>First, download <a href="https://github.com/paulgb/rhythmless/raw/master/rhythmless/rhythm.less"><samp>rhythm.less</samp></a>
+        into the directory you intend to use it from. Include rhythmless in another <samp>.less</samp> file as follows:</p>
         <div class="code">
         <pre><code>// import the mixins
 @import "rhythm";
 
 // set the rhythmic unit
-@rhythmic-unit: 20px;
+@rhythmic-unit: 20px;</code></pre>
+        </div>
+        <h3>Styling Elements</h3>
+        <div class="code">
+        <pre><code>// import the mixins
+@import "rhythm";
 
-h1 {
-}</code></pre>
+// set the rhythmic unit
+@rhythmic-unit: 20px;</code></pre>
         </div>
         <p>Inspired by <a href="http://www.gridlover.net/">gridlover</a> and <a href="http://www.alistapart.com/articles/settingtypeontheweb/">Wilson Miner's article</a></p>
     </div>

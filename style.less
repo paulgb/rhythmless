@@ -3,48 +3,30 @@
 
 body {
     font-family: 'Signika Negative', sans-serif;
-    #rhythmless > .vertical-rule(#ddf);
+    #rhythmless > .vertical-rule(#eef);
     margin: 0;
     padding: 0;
 }
 
+#rhythmless > .rhythm-container(14px);
+
 header {
+    h1 {
+        #rhythmless > .rhythm(40px);
+    }
+
     h2 {
         #rhythmless > .rhythm(20px);
     }
 }
-
-h1 {
-    #rhythmless > .rhythm(40px);
-}
-
-h2 {
-    #rhythmless > .rhythm(20px, 10px);
-}
-
-p {
-    #rhythmless > .rhythm(14px, 10px);
-}
-
 
 div.code {
     #rhythmless > .container(5px, 1px);
     background-color: rgba(255, 255, 0, 0.2);
     border-style: solid;
     border-color: #cc9;
-    padding-left: 5px;
-    padding-right: 5px;
-    pre {
-        #rhythmless > .rhythm(12px, 10px);
-    }
-}
-
-ul {
-    #rhythmless > .rhythm(14px, 5px);
-}
-
-li {
-    #rhythmless > .rhythm();
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 div.content {
@@ -57,13 +39,14 @@ div.content {
 a {
     color: red;
     text-decoration: none;
+
+    &:visited {
+        color: darkred;
+    }
+
+    &:hover {
+        color: #555;
+    }
 }
 
-a:visited {
-    color: darkred;
-}
-
-a:hover {
-    color: #555;
-}
 
