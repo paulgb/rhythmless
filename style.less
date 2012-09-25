@@ -1,15 +1,20 @@
 
+// import rhythmless
 @import "rhythmless/rhythm";
 
 body {
     font-family: 'Signika Negative', sans-serif;
-    #rhythmless > .vertical-rule(#eef);
+    // vertical grid for the body
+    #rhythmless > .vertical-grid(#eef);
     margin: 0;
     padding: 0;
 }
 
+// make the whole page a rhythm container
 #rhythmless > .rhythm-container(14px);
 
+// get rid of the margins in the header element, so that the subtitle
+// fits right below the title
 header {
     h1 {
         #rhythmless > .rhythm(40px);
@@ -20,8 +25,18 @@ header {
     }
 }
 
+h2 {
+    color: #600;
+}
+
+h3 {
+    color: #444;
+}
+
+// gives the code samples a nice subtle background
+// without breaking rhythm
 div.code {
-    #rhythmless > .container(5px, 1px);
+    #rhythmless > .nested-container(10px, 1px);
     background-color: rgba(255, 255, 0, 0.2);
     border-style: solid;
     border-color: #cc9;
@@ -33,15 +48,14 @@ div.content {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
-    #rhythmless > .rhythm(14px, 10px);
 }
 
 a {
-    color: red;
+    color: #c33;
     text-decoration: none;
 
     &:visited {
-        color: darkred;
+        color: #c00;
     }
 
     &:hover {
@@ -49,4 +63,7 @@ a {
     }
 }
 
+code, samp {
+    font-size: 14px * 0.8;
+}
 

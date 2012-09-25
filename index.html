@@ -12,46 +12,98 @@
     <body>
         <div class="content">
 
-        <header>
-            <h1>Rhythmless</h1>
-            <h2>Vertical Rhythm for <a href="http://lesscss.org/">LESS</a></h2>
-        </header>
+            <header>
+                <h1>Rhythmless</h1>
+                <h2>Vertical Rhythm for <a href="http://lesscss.org/">LESS</a></h2>
+            </header>
 
-        <p>Rhythmless provides an easy way to maintain <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">vertical rhythm</a> in CSS</a>. It's a lightweight LESS mixin bundle that doesn't make any assumptions about your code.</p>
+            <p>Rhythmless provides an easy way to maintain <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">vertical rhythm</a> in CSS</a>. It's a lightweight LESS mixin bundle that doesn't make any assumptions about your code.</p>
 
-        <h2>Features</h2>
+            <h2>Features</h2>
 
-        <ul>
-            <li><strong>Semantic</strong> - use the mixins with any class or element</li>
-            <li><strong>Compatible</strong> - tightly namespaced and compatible with CSS reset code</li>
-            <li><strong>Easy</strong> - put away your calculator, no need for pesky arithmatic</li>
-            <li><strong>Pure</strong> - generates pure CSS, no JavaScript</li>
-            <li><strong>Flexible</strong> - specify your own rhythmic unit and apply it to the selectors you want</li>
-        </ul>
+            <ul>
+                <li><strong>Semantic</strong> - use the mixins with any class or element</li>
+                <li><strong>Compatible</strong> - tightly namespaced and compatible with CSS reset code</li>
+                <li><strong>Easy</strong> - put away your calculator, no need for pesky arithmatic</li>
+                <li><strong>Pure</strong> - generates pure CSS, no JavaScript</li>
+                <li><strong>Flexible</strong> - specify your own rhythmic unit and apply it to the selectors you want</li>
+            </ul>
 
-        <h2>Getting Started</h2>
-        <h3>Requirements</h3>
-        <p>Rhythmless requires the <a href="http://lesscss.org/">LESS CSS compiler</a>. If you're not already using it,
-        refer to the <a href="http://lesscss.org/#-client-side-usage">LESS documentation</a> to integrate LESS into your project.</p>
-        <h3>Installation</h3>
-        <p>First, download <a href="https://github.com/paulgb/rhythmless/raw/master/rhythmless/rhythm.less"><samp>rhythm.less</samp></a>
-        into the directory you intend to use it from. Include rhythmless in another <samp>.less</samp> file as follows:</p>
-        <div class="code">
-        <pre><code>// import the mixins
+            <h2>Getting Started</h2>
+            <h3>Requirements</h3>
+            <p>Rhythmless requires the <a href="http://lesscss.org/">LESS CSS compiler</a>. If you're not already using it,
+            refer to the <a href="http://lesscss.org/#-client-side-usage">LESS documentation</a> to integrate LESS into your project.</p>
+            <h3>Installation</h3>
+            <p>First, download <a href="https://github.com/paulgb/rhythmless/raw/master/rhythmless/rhythm.less"><samp>rhythm.less</samp></a>
+            into the directory you intend to use it from. Include rhythmless in another <samp>.less</samp> file as follows:</p>
+            <div class="code">
+            <pre><code>// import the mixins
 @import "rhythm";
 
 // set the rhythmic unit
 @rhythmic-unit: 20px;</code></pre>
-        </div>
-        <h3>Styling Elements</h3>
-        <div class="code">
-        <pre><code>// import the mixins
-@import "rhythm";
+            </div>
+            <h3>Styling Elements</h3>
+            <p>Rhythmless provides vertical rhythm within a container, which can be any block-level element such as a <samp>&lt;div&gt;</samp>. All block-level elements within the container must inherit the <samp>.rhythm </samp>mixin. A helper mixin called <samp>.rhythm-container</samp> is provided which takes a base font size and automatically adds the <samp>.rhythm </samp>mixin to many common block-level elements.</p>
+            <div class="code">
+            <pre><code>div#content {
+    // apply rhythmless to the contents
+    // of the #content element
+    #rhythmless &gt; .rhythm-container(14px);
+}</code></pre>
+            </div>
+            <p>Rhythmless guesses values for font-sizes and margins that make sense for the given font size. Of course, you can override the values if they don't suit you.</p>
 
-// set the rhythmic unit
-@rhythmic-unit: 20px;</code></pre>
+            <div class="code">
+            <pre><code>h1 {
+    // set the text size of h1 to 40px
+    // while maintaining rhythm
+    #rhythmless &gt; .rhythm(40px);
+}</code></pre>
+            </div>
+            <h3>Showing a vertical grid</h3>
+            <p>It can be useful to display evenly-spaced vertical lines to verify that spacing is correct. To display this, add <samp>.vertical-grid</samp> to the container element.</p>
+            <div class="code">
+            <pre><code>div#content {
+    // show red vertical lines spaced
+    // according to @rhythmic-unit
+    #rhythmless &gt; .vertical-grid(red);
+}</code></pre>
+            </div>
+            <h3>Nested containers</h3>
+            <p>Sometimes you may want to have containers within containers without breaking the rhythm. The code sample boxes on this page are an example of this. Rhythmless needs to be aware of the padding and border width of these elements.</p>
+            <div class="code">
+            <pre><code>div.code {
+    // create a container with 5px of padding
+    // and a 1px border
+    #rhythmless &gt; .nested-container(5px, 1px);
+    // apply some styles
+    background-color: rgba(255, 255, 0, 0.2);
+    border-style: solid;
+    border-color: #cc9;
+    padding-left: 15px;
+    padding-right: 15px;
+}</code></pre>
+            </div>
+            
+            <h2>Compatibility</h2>
+            <p>Works on:</p>
+            <ul>
+                <li>Chrome for Linux (21.0.1180.89)</li>
+                <li>Firefox for Linux (15.0.1)</li>
+                <li>Android Browser (Jelly Bean)</li>
+            </ul>
+            <p>Doesn't work on:</p>
+            <ul>
+                <li>Chrome for Android</li>
+            </ul>
+        
+            <h2>Changelog</h2>
+            <ul>
+                <li><strong>Sept 25, 2012</strong> &mdash; version 0.1 released</li>
+            </ul>
+            <h2>Credits</h2>
+            <p>Created by <a href="https://github.com/paulgb">Paul Butler</a>. Contributions and bug reports welcome via <a href="https://github.com/paulgb/rhythmless">GitHub</a>.</p>
+            <p>You are encouraged to use and distribute Rhythmless in accordance with the <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+            <p>Inspired by <a href="http://www.gridlover.net/">Gridlover</a> and <a href="http://www.alistapart.com/articles/settingtypeontheweb/">Wilson Miner's article</a>. This page uses the font <a href="http://www.google.com/webfonts/specimen/Signika+Negative">Signika Negative</a> by <a href="https://plus.google.com/u/0/105016556070324621004/about">Anna Giedryś</a>.
         </div>
-        <p>Inspired by <a href="http://www.gridlover.net/">gridlover</a> and <a href="http://www.alistapart.com/articles/settingtypeontheweb/">Wilson Miner's article</a></p>
-    </div>
-    </body>
-</html>
